@@ -175,6 +175,12 @@ function openApplication(appName) {
             case 'control-panel':
                 // 控制面板正常打开
                 break;
+            case 'twitter':
+                openTwitter();
+                break;
+            case 'recharge':
+                openRecharge();
+                break;
             case 'recent':
                 showSystemDialog(
                     '最近文档',
@@ -1532,6 +1538,8 @@ Windows 98 系统命令：
 • paint - 画图
 • minesweeper - 扫雷
 • control-panel - 控制面板
+• twitter - Twitter社交平台
+• recharge - 网吧充值系统
 
 系统信息：
 • 版本：Windows 98 Second Edition
@@ -1546,4 +1554,42 @@ window.showNetworkCard = showNetworkCardModal;
 window.showIllegalOperation = showIllegalOperationModal;
 window.toggleSlowMode = toggleSlowMode;
 window.openApp = openApplication;
-window.closeAllWindows = closeAllWindows; 
+window.closeAllWindows = closeAllWindows;
+
+// 打开Twitter
+function openTwitter() {
+    showSystemDialog(
+        'Twitter',
+        '正在连接到 Twitter...\n\n请稍候...',
+        '🐦'
+    );
+    
+    setTimeout(() => {
+        showSystemDialog(
+            'Twitter',
+            '连接成功！\n\n正在跳转到 @Internetcafesol...',
+            '🐦'
+        );
+        
+        setTimeout(() => {
+            window.open('https://x.com/Internetcafesol', '_blank');
+        }, 2000);
+    }, 2000);
+}
+
+// 打开充值页面
+function openRecharge() {
+    showSystemDialog(
+        '充值$网吧',
+        '欢迎使用网吧充值系统！\n\n当前余额：$0.00\n\n充值选项：\n• $1.00 - 1小时\n• $5.00 - 6小时\n• $10.00 - 15小时\n• $20.00 - 30小时\n\n请选择充值金额...',
+        '💰'
+    );
+    
+    setTimeout(() => {
+        showSystemDialog(
+            '充值$网吧',
+            '充值功能开发中...\n\n敬请期待！\n\n您可以选择：\n• 现金充值\n• 刷卡充值\n• 在线支付\n\n请联系网管进行充值。',
+            '💰'
+        );
+    }, 3000);
+} 
