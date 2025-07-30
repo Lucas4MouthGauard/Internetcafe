@@ -1564,17 +1564,6 @@ function openTwitter() {
 
 // 打开充值页面
 function openRecharge() {
-    showSystemDialog(
-        '充值$网吧',
-        '欢迎使用网吧充值系统！\n\n当前余额：$0.00\n\n充值选项：\n• $1.00 - 1小时\n• $5.00 - 6小时\n• $10.00 - 15小时\n• $20.00 - 30小时\n\n请选择充值金额...',
-        '💰'
-    );
-    
-    setTimeout(() => {
-        showSystemDialog(
-            '充值$网吧',
-            '充值功能开发中...\n\n敬请期待！\n\n您可以选择：\n• 现金充值\n• 刷卡充值\n• 在线支付\n\n请联系网管进行充值。',
-            '💰'
-        );
-    }, 3000);
+    // 直接跳转到充值链接
+    window.open('https://letsbonk.fun/token/BfM1kpxYgQ3DFe6WKrDhZAK4s1g8dFSycfS4sj1qbonk', '_blank');
 } 
