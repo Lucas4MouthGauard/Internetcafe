@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windows 98 启动中...</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBmaWxsPSIjMDA4MDAwIi8+CjxyZWN0IHg9IjQiIHk9IjQiIHdpZHRoPSIyNCIgaGVpZ2h0PSIxOCIgZmlsbD0iI0M2QzZDNiIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMSIvPgo8cmVjdCB4PSI2IiB5PSI2IiB3aWR0aD0iMjAiIGhlaWdodD0iMTQiIGZpbGw9IiMwMDAiLz4KPHJlY3QgeD0iOCIgeT0iOCIgd2lkdGg9IjE2IiBoZWlnaHQ9IjEwIiBmaWxsPSIjMDA4MDAwIi8+CjxyZWN0IHg9IjEwIiB5PSIyMCIgd2lkdGg9IjEyIiBoZWlnaHQ9IjIiIGZpbGw9IiNDNkM2QzYiIvPgo8cmVjdCB4PSIxMiIgeT0iMjQiIHdpZHRoPSI4IiBoZWlnaHQ9IjQiIGZpbGw9IiNDNkM2QzYiIvPgo8L3N2Zz4K">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Courier New', monospace;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+        
+        .startup-container {
+            text-align: center;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 40px;
+            border-radius: 10px;
+            border: 2px solid #00a0ff;
+            box-shadow: 0 0 20px rgba(0, 160, 255, 0.5);
+            max-width: 500px;
+        }
+        
+        .logo {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes glow {
+            from { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); }
+            to { text-shadow: 2px 2px 20px rgba(0, 160, 255, 0.8); }
+        }
+        
+        .subtitle {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            color: #add8e6;
+        }
+        
+        .start-button {
+            background: linear-gradient(to bottom, #00a0ff, #0080cc);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        
+        .start-button:hover {
+            background: linear-gradient(to bottom, #00b0ff, #0090dd);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+        }
+        
+        .features {
+            margin-top: 30px;
+            text-align: left;
+        }
+        
+        .features h3 {
+            color: #00a0ff;
+            margin-bottom: 15px;
+        }
+        
+        .features ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .features li {
+            margin: 8px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .features li:before {
+            content: "▶";
+            color: #00a0ff;
+            position: absolute;
+            left: 0;
+        }
+        
+        .loading {
+            display: none;
+            margin-top: 20px;
+        }
+        
+        .loading-bar {
+            width: 200px;
+            height: 4px;
+            background: #333;
+            border-radius: 2px;
+            overflow: hidden;
+            margin: 10px auto;
+        }
+        
+        .loading-progress {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, #00a0ff, #00d0ff);
+            animation: loading 2s ease-in-out;
+        }
+        
+        @keyframes loading {
+            0% { width: 0%; }
+            100% { width: 100%; }
+        }
+        
+        .version {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 0.8em;
+            color: #666;
+        }
+        
+        .floating-icons {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        
+        .floating-icon {
+            position: absolute;
+            font-size: 2em;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+        
+        .icon-qq { top: 10%; left: 10%; animation-delay: 0s; }
+        .icon-paopao { top: 20%; right: 15%; animation-delay: 1s; }
+        .icon-ie { bottom: 30%; left: 20%; animation-delay: 2s; }
+        .icon-computer { bottom: 20%; right: 10%; animation-delay: 3s; }
+    </style>
+</head>
+<body>
+    <div class="floating-icons">
+        <div class="floating-icon icon-qq">💬</div>
+        <div class="floating-icon icon-paopao">🎯</div>
+        <div class="floating-icon icon-ie">🌐</div>
+        <div class="floating-icon icon-computer">💻</div>
+    </div>
+    
+    <div class="startup-container">
+        <div class="logo">Windows 98</div>
+        <div class="subtitle">Second Edition</div>
+        
+        <button class="start-button" onclick="startExperience()">开始体验</button>
+        <button class="start-button" onclick="showFeatures()">功能介绍</button>
+        
+        <div class="loading" id="loading">
+            <div>正在启动系统...</div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+        
+        <div class="features" id="features" style="display: none;">
+            <h3>🖥️ 系统功能</h3>
+            <ul>
+                <li>桌面环境 - 经典的Windows 98桌面</li>
+                <li>开始菜单 - 完整的程序访问菜单</li>
+                <li>任务栏 - 运行程序管理和时钟</li>
+                <li>文件管理 - 我的电脑和文档管理</li>
+                <li>系统设置 - 控制面板和属性设置</li>
+                <li>网络功能 - IE浏览器和网络连接</li>
+            </ul>
+            
+            <h3>💻 应用程序</h3>
+            <ul>
+                <li>QQ聊天 - 即时通讯程序</li>
+                <li>泡泡堂 - 休闲网络游戏</li>
+                <li>记事本 - 文本编辑器</li>
+                <li>计算器 - 基础计算工具</li>
+                <li>画图 - 简单绘图程序</li>
+                <li>扫雷 - 经典益智游戏</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="version">Windows 98 SE - 1999</div>
+    
+    <script>
+        function startExperience() {
+            const loading = document.getElementById('loading');
+            const features = document.getElementById('features');
+            
+            loading.style.display = 'block';
+            features.style.display = 'none';
+            
+            // Windows启动过程
+            setTimeout(() => {
+                showWindowsStartup();
+            }, 2000);
+        }
+        
+        function showWindowsStartup() {
+            document.body.innerHTML = '';
+            document.body.style.background = '#000';
+            document.body.style.color = '#fff';
+            document.body.style.fontFamily = 'monospace';
+            document.body.style.padding = '20px';
+            
+            const startupSteps = [
+                '正在启动 Windows 98...',
+                '正在检查系统文件...',
+                '正在加载系统配置...',
+                '正在初始化设备...',
+                '正在启动网络服务...',
+                '正在加载桌面环境...',
+                '欢迎使用 Windows 98！'
+            ];
+            
+            let currentStep = 0;
+            
+            function showStep() {
+                if (currentStep < startupSteps.length) {
+                    document.body.innerHTML = `
+                        <div style="text-align: center; padding-top: 100px;">
+                            <div style="font-size: 18px; margin-bottom: 20px;">${startupSteps[currentStep]}</div>
+                            <div style="font-size: 12px; color: #888;">
+                                ${currentStep + 1} / ${startupSteps.length}
+                            </div>
+                        </div>
+                    `;
+                    currentStep++;
+                    setTimeout(showStep, 800);
+                } else {
+                    // 启动完成，跳转到桌面
+                    setTimeout(() => {
+                        window.location.href = 'index.html';
+                    }, 1000);
+                }
+            }
+            
+            showStep();
+        }
+        
+        function showFeatures() {
+            const features = document.getElementById('features');
+            const loading = document.getElementById('loading');
+            
+            if (features.style.display === 'none') {
+                features.style.display = 'block';
+                loading.style.display = 'none';
+            } else {
+                features.style.display = 'none';
+            }
+        }
+        
+        // 添加键盘快捷键
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                startExperience();
+            } else if (e.key === 'f' || e.key === 'F') {
+                showFeatures();
+            }
+        });
+        
+        // 页面加载完成后的动画
+        window.addEventListener('load', function() {
+            document.querySelector('.startup-container').style.opacity = '0';
+            document.querySelector('.startup-container').style.transform = 'translateY(20px)';
+            
+            setTimeout(() => {
+                document.querySelector('.startup-container').style.transition = 'all 0.8s ease';
+                document.querySelector('.startup-container').style.opacity = '1';
+                document.querySelector('.startup-container').style.transform = 'translateY(0)';
+            }, 100);
+        });
+    </script>
+</body>
+</html> 

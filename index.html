@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windows 98 - 网吧系统</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBmaWxsPSIjMDA4MDAwIi8+CjxyZWN0IHg9IjQiIHk9IjQiIHdpZHRoPSIyNCIgaGVpZ2h0PSIxOCIgZmlsbD0iI0M2QzZDNiIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjEiLz4KPHJlY3QgeD0iNiIgeT0iNiIgd2lkdGg9IjIwIiBoZWlnaHQ9IjE0IiBmaWxsPSIjMDAwIi8+CjxyZWN0IHg9IjgiIHk9IjgiIHdpZHRoPSIxNiIgaGVpZ2h0PSIxMCIgZmlsbD0iIzAwODAwMCIvPgo8cmVjdCB4PSIxMCIgeT0iMjAiIHdpZHRoPSIxMiIgaGVpZ2h0PSIyIiBmaWxsPSIjQzZDNkM2Ii8+CjxyZWN0IHg9IjEyIiB5PSIyNCIgd2lkdGg9IjgiIGhlaWdodD0iNCIgZmlsbD0iI0M2QzZDNiIvPgo8L3N2Zz4K">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="desktop">
+        <!-- 桌面背景 -->
+        <div class="desktop-bg"></div>
+        
+        <!-- 任务栏 -->
+        <div class="taskbar">
+            <div class="start-button">
+                <span>开始</span>
+            </div>
+            <div class="taskbar-items">
+                <div class="taskbar-item active" data-window="desktop">桌面</div>
+                <div class="taskbar-item" data-window="qq">QQ</div>
+                <div class="taskbar-item" data-window="paopao">泡泡堂</div>
+                <div class="taskbar-item" data-window="ie">IE浏览器</div>
+            </div>
+            <div class="system-status">
+                <span class="status-item">💾 可用内存: 64MB</span>
+                <span class="status-item">🌐 网络: 已连接</span>
+                <span class="tray-icon" title="音量控制">🔊</span>
+                <span class="tray-icon" title="网络状态">📡</span>
+                <span class="clock">14:30</span>
+            </div>
+        </div>
+
+        <!-- 桌面图标 -->
+        <div class="desktop-icons">
+            <div class="desktop-icon" data-app="qq">
+                <div class="icon-img qq-icon"></div>
+                <div class="icon-text">QQ</div>
+            </div>
+            <div class="desktop-icon" data-app="paopao">
+                <div class="icon-img paopao-icon"></div>
+                <div class="icon-text">泡泡堂</div>
+            </div>
+            <div class="desktop-icon" data-app="ie">
+                <div class="icon-img ie-icon"></div>
+                <div class="icon-text">Internet Explorer</div>
+            </div>
+            <div class="desktop-icon" data-app="mycomputer">
+                <div class="icon-img computer-icon"></div>
+                <div class="icon-text">我的电脑</div>
+            </div>
+        </div>
+
+        <!-- 弹窗 -->
+        <div id="network-card-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>系统提示</h3>
+                    <span class="close">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <div class="warning-icon">⚠️</div>
+                    <p>请插入网卡</p>
+                    <p class="small-text">错误代码: 0x0000001A</p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary">确定</button>
+                    <button class="btn btn-secondary">取消</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="illegal-operation-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>系统错误</h3>
+                    <span class="close">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <div class="error-icon">❌</div>
+                    <p>非法操作</p>
+                    <p class="small-text">程序执行了非法操作，即将关闭</p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary">确定</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 应用程序窗口 -->
+        <div id="qq-window" class="app-window" style="display: none;">
+            <div class="window-header">
+                <div class="window-title">QQ 2000</div>
+                <div class="window-controls">
+                    <span class="minimize">─</span>
+                    <span class="maximize">□</span>
+                    <span class="close">×</span>
+                </div>
+            </div>
+            <div class="window-content">
+                <div class="qq-interface">
+                    <div class="qq-login">
+                        <h3>QQ登录</h3>
+                        <input type="text" placeholder="QQ号码" class="qq-input">
+                        <input type="password" placeholder="密码" class="qq-input">
+                        <button class="login-btn">登录</button>
+                    </div>
+                    <div class="qq-friends" style="display: none;">
+                        <h3>好友列表</h3>
+                        <div class="friend-item">
+                            <span class="friend-status online"></span>
+                            <span>Musk (123456)</span>
+                        </div>
+                        <div class="friend-item">
+                            <span class="friend-status offline"></span>
+                            <span>Trump (654321)</span>
+                        </div>
+                        <div class="friend-item">
+                            <span class="friend-status online"></span>
+                            <span>孙宇晨 (789012)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="paopao-window" class="app-window" style="display: none;">
+            <div class="window-header">
+                <div class="window-title">泡泡堂</div>
+                <div class="window-controls">
+                    <span class="minimize">─</span>
+                    <span class="maximize">□</span>
+                    <span class="close">×</span>
+                </div>
+            </div>
+            <div class="window-content">
+                <div class="game-canvas">
+                    <canvas id="paopao-canvas" width="400" height="300"></canvas>
+                    <div class="game-controls">
+                        <button class="game-btn">开始游戏</button>
+                        <button class="game-btn">暂停</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="ie-window" class="app-window" style="display: none;">
+            <div class="window-header">
+                <div class="window-title">Internet Explorer 6.0</div>
+                <div class="window-controls">
+                    <span class="minimize">─</span>
+                    <span class="maximize">□</span>
+                    <span class="close">×</span>
+                </div>
+            </div>
+            <div class="window-content">
+                <div class="browser-toolbar">
+                    <button class="browser-btn">后退</button>
+                    <button class="browser-btn">前进</button>
+                    <button class="browser-btn">刷新</button>
+                    <button class="browser-btn">主页</button>
+                    <input type="text" value="http://www.baidu.com" class="url-bar">
+                    <button class="browser-btn">转到</button>
+                </div>
+                <div class="browser-content">
+                    <div class="loading-indicator">
+                        <div class="loading-bar"></div>
+                        <p>正在连接...</p>
+                    </div>
+                    <div class="browser-page" style="display: none;">
+                        <h2>欢迎来到互联网</h2>
+                        <p>这是您的默认主页。</p>
+                        <hr>
+                        <h3>热门网站</h3>
+                        <ul>
+                            <li><a href="#" onclick="loadWebsite('baidu')">百度 - 全球最大中文搜索引擎</a></li>
+                            <li><a href="#" onclick="loadWebsite('sina')">新浪网 - 新闻资讯门户</a></li>
+                            <li><a href="#" onclick="loadWebsite('sohu')">搜狐网 - 综合门户网站</a></li>
+                            <li><a href="#" onclick="loadWebsite('163')">网易 - 综合门户网站</a></li>
+                        </ul>
+                        <hr>
+                        <h3>系统信息</h3>
+                        <p>浏览器版本：Internet Explorer 6.0</p>
+                        <p>操作系统：Windows 98 Second Edition</p>
+                        <p>网络连接：局域网 (192.168.1.100)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 记事本窗口 -->
+        <div id="notepad-window" class="app-window" style="display: none;">
+            <div class="window-header">
+                <div class="window-title">记事本</div>
+                <div class="window-controls">
+                    <span class="minimize">─</span>
+                    <span class="maximize">□</span>
+                    <span class="close">×</span>
+                </div>
+            </div>
+            <div class="window-content">
+                <div class="notepad-toolbar">
+                    <button class="notepad-btn">文件</button>
+                    <button class="notepad-btn">编辑</button>
+                    <button class="notepad-btn">格式</button>
+                    <button class="notepad-btn">帮助</button>
+                </div>
+                <textarea class="notepad-textarea" placeholder="在这里输入文字...">欢迎使用记事本！
+
+这是一个简单的文本编辑器，您可以用来创建和编辑文本文件。
+
+文件菜单：
+• 新建 - 创建新文档
+• 打开 - 打开现有文件
+• 保存 - 保存当前文档
+• 另存为 - 以新名称保存
+• 页面设置 - 设置打印页面
+• 打印 - 打印文档
+• 退出 - 关闭记事本
+
+编辑菜单：
+• 撤销 - 撤销上次操作
+• 剪切 - 剪切选中文本
+• 复制 - 复制选中文本
+• 粘贴 - 粘贴剪贴板内容
+• 删除 - 删除选中文本
+• 查找 - 查找文本
+• 查找下一个 - 查找下一个匹配项
+• 替换 - 替换文本
+• 转到 - 转到指定行
+• 全选 - 选择所有文本
+• 时间/日期 - 插入当前时间
+
+格式菜单：
+• 自动换行 - 启用/禁用自动换行
+• 字体 - 设置字体属性
+
+帮助菜单：
+• 帮助主题 - 显示帮助信息
+• 关于记事本 - 显示版本信息
+
+开始输入您的文本吧！</textarea>
+            </div>
+        </div>
+
+        <!-- 计算器窗口 -->
+        <div id="calculator-window" class="app-window" style="display: none;">
+            <div class="window-header">
+                <div class="window-title">计算器</div>
+                <div class="window-controls">
+                    <span class="minimize">─</span>
+                    <span class="maximize">□</span>
+                    <span class="close">×</span>
+                </div>
+            </div>
+            <div class="window-content">
+                <div class="calculator">
+                    <input type="text" class="calc-display" value="0" readonly>
+                    <div class="calc-buttons">
+                        <button class="calc-btn">7</button>
+                        <button class="calc-btn">8</button>
+                        <button class="calc-btn">9</button>
+                        <button class="calc-btn calc-op">÷</button>
+                        <button class="calc-btn">4</button>
+                        <button class="calc-btn">5</button>
+                        <button class="calc-btn">6</button>
+                        <button class="calc-btn calc-op">×</button>
+                        <button class="calc-btn">1</button>
+                        <button class="calc-btn">2</button>
+                        <button class="calc-btn">3</button>
+                        <button class="calc-btn calc-op">-</button>
+                        <button class="calc-btn">0</button>
+                        <button class="calc-btn">.</button>
+                        <button class="calc-btn calc-equals">=</button>
+                        <button class="calc-btn calc-op">+</button>
+                        <button class="calc-btn calc-clear">C</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 画图窗口 -->
+        <div id="paint-window" class="app-window" style="display: none;">
+            <div class="window-header">
+                <div class="window-title">画图</div>
+                <div class="window-controls">
+                    <span class="minimize">─</span>
+                    <span class="maximize">□</span>
+                    <span class="close">×</span>
+                </div>
+            </div>
+            <div class="window-content">
+                <div class="paint-toolbar">
+                    <button class="paint-btn" data-tool="pencil">✏️</button>
+                    <button class="paint-btn" data-tool="eraser">🧽</button>
+                    <button class="paint-btn" data-tool="line">📏</button>
+                    <button class="paint-btn" data-tool="rect">⬜</button>
+                    <button class="paint-btn" data-tool="circle">⭕</button>
+                    <input type="color" class="paint-color" value="#000000">
+                </div>
+                <canvas id="paint-canvas" width="400" height="300" class="paint-canvas"></canvas>
+            </div>
+        </div>
+
+        <!-- 扫雷窗口 -->
+        <div id="minesweeper-window" class="app-window" style="display: none;">
+            <div class="window-header">
+                <div class="window-title">扫雷</div>
+                <div class="window-controls">
+                    <span class="minimize">─</span>
+                    <span class="maximize">□</span>
+                    <span class="close">×</span>
+                </div>
+            </div>
+            <div class="window-content">
+                <div class="minesweeper-header">
+                    <div class="mine-counter">💣 10</div>
+                    <button class="mine-reset">😊</button>
+                    <div class="mine-timer">⏱️ 0</div>
+                </div>
+                <div class="minesweeper-grid" id="minesweeper-grid"></div>
+            </div>
+        </div>
+
+        <!-- 控制面板窗口 -->
+        <div id="control-panel-window" class="app-window" style="display: none;">
+            <div class="window-header">
+                <div class="window-title">控制面板</div>
+                <div class="window-controls">
+                    <span class="minimize">─</span>
+                    <span class="maximize">□</span>
+                    <span class="close">×</span>
+                </div>
+            </div>
+            <div class="window-content">
+                <div class="control-panel">
+                    <h3>系统设置</h3>
+                    <div class="control-item">
+                        <label>桌面背景：</label>
+                        <select class="control-select">
+                            <option>蓝色渐变</option>
+                            <option>绿色渐变</option>
+                            <option>红色渐变</option>
+                        </select>
+                    </div>
+                    <div class="control-item">
+                        <label>屏幕分辨率：</label>
+                        <select class="control-select">
+                            <option>800x600</option>
+                            <option>1024x768</option>
+                            <option>1280x1024</option>
+                        </select>
+                    </div>
+                    <div class="control-item">
+                        <label>系统音量：</label>
+                        <input type="range" min="0" max="100" value="50" class="control-slider">
+                    </div>
+                    <button class="control-btn">应用设置</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 系统对话框 -->
+        <div id="system-dialog" class="system-dialog" style="display: none;">
+            <div class="dialog-content">
+                <div class="dialog-header">
+                    <div class="dialog-title"></div>
+                    <span class="dialog-close">&times;</span>
+                </div>
+                <div class="dialog-body">
+                    <div class="dialog-icon"></div>
+                    <div class="dialog-message"></div>
+                </div>
+                <div class="dialog-footer">
+                    <button class="dialog-btn dialog-ok">确定</button>
+                    <button class="dialog-btn dialog-cancel" style="display: none;">取消</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 关机对话框 -->
+        <div id="shutdown-dialog" class="shutdown-dialog" style="display: none;">
+            <div class="shutdown-content">
+                <div class="shutdown-header">
+                    <div class="shutdown-title">关闭 Windows</div>
+                    <span class="shutdown-close">&times;</span>
+                </div>
+                <div class="shutdown-body">
+                    <div class="shutdown-icon">⏹️</div>
+                    <div class="shutdown-message">您想要计算机做什么？</div>
+                    <div class="shutdown-options">
+                        <label><input type="radio" name="shutdown" value="standby" checked> 待机</label>
+                        <label><input type="radio" name="shutdown" value="shutdown"> 关机</label>
+                        <label><input type="radio" name="shutdown" value="restart"> 重新启动</label>
+                        <label><input type="radio" name="shutdown" value="logout"> 注销</label>
+                    </div>
+                </div>
+                <div class="shutdown-footer">
+                    <button class="shutdown-btn shutdown-ok">确定</button>
+                    <button class="shutdown-btn shutdown-cancel">取消</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 开始菜单 -->
+        <div id="start-menu" class="start-menu" style="display: none;">
+            <div class="start-menu-item" data-menu="programs">
+                <span class="menu-icon">📁</span>
+                <span>程序</span>
+            </div>
+            <div class="start-menu-item" data-menu="documents">
+                <span class="menu-icon">📄</span>
+                <span>文档</span>
+            </div>
+            <div class="start-menu-item" data-menu="settings">
+                <span class="menu-icon">⚙️</span>
+                <span>设置</span>
+            </div>
+            <div class="start-menu-item" data-menu="help">
+                <span class="menu-icon">❓</span>
+                <span>帮助</span>
+            </div>
+            <div class="start-menu-item" data-menu="logout">
+                <span class="menu-icon">🔄</span>
+                <span>注销</span>
+            </div>
+            <div class="start-menu-item" data-menu="shutdown">
+                <span class="menu-icon">⏹️</span>
+                <span>关机</span>
+            </div>
+        </div>
+
+        <!-- 程序子菜单 -->
+        <div id="programs-submenu" class="submenu" style="display: none;">
+            <div class="submenu-item" data-app="notepad">
+                <span class="menu-icon">📝</span>
+                <span>记事本</span>
+            </div>
+            <div class="submenu-item" data-app="calculator">
+                <span class="menu-icon">🧮</span>
+                <span>计算器</span>
+            </div>
+            <div class="submenu-item" data-app="paint">
+                <span class="menu-icon">🎨</span>
+                <span>画图</span>
+            </div>
+            <div class="submenu-item" data-app="minesweeper">
+                <span class="menu-icon">💣</span>
+                <span>扫雷</span>
+            </div>
+        </div>
+
+        <!-- 文档子菜单 -->
+        <div id="documents-submenu" class="submenu" style="display: none;">
+            <div class="submenu-item" data-app="recent">
+                <span class="menu-icon">📋</span>
+                <span>最近文档</span>
+            </div>
+            <div class="submenu-item" data-app="my-documents">
+                <span class="menu-icon">📁</span>
+                <span>我的文档</span>
+            </div>
+        </div>
+
+        <!-- 设置子菜单 -->
+        <div id="settings-submenu" class="submenu" style="display: none;">
+            <div class="submenu-item" data-app="control-panel">
+                <span class="menu-icon">⚙️</span>
+                <span>控制面板</span>
+            </div>
+            <div class="submenu-item" data-app="display">
+                <span class="menu-icon">🖥️</span>
+                <span>显示设置</span>
+            </div>
+            <div class="submenu-item" data-app="sound">
+                <span class="menu-icon">🔊</span>
+                <span>声音设置</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 网速模式切换 -->
+    <div class="speed-toggle">
+        <button id="slow-mode-btn" class="speed-btn">慢速模式</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
