@@ -1558,23 +1558,8 @@ window.closeAllWindows = closeAllWindows;
 
 // 打开Twitter
 function openTwitter() {
-    showSystemDialog(
-        'Twitter',
-        '正在连接到 Twitter...\n\n请稍候...',
-        '🐦'
-    );
-    
-    setTimeout(() => {
-        showSystemDialog(
-            'Twitter',
-            '连接成功！\n\n正在跳转到 @Internetcafesol...',
-            '🐦'
-        );
-        
-        setTimeout(() => {
-            window.open('https://x.com/Internetcafesol', '_blank');
-        }, 2000);
-    }, 2000);
+    // 直接跳转到Twitter链接
+    window.open('https://x.com/Internetcafesol', '_blank');
 }
 
 // 打开充值页面
