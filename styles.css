@@ -169,7 +169,7 @@ body {
 }
 
 .paopao-icon {
-    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><circle cx="24" cy="24" r="20" fill="%23ff6b6b"/><text x="24" y="30" text-anchor="middle" fill="white" font-size="16" font-weight="bold">泡</text></svg>');
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><circle cx="24" cy="24" r="20" fill="%23ff6b6b"/><text x="24" y="30" text-anchor="middle" fill="white" font-size="12" font-weight="bold">Bubble</text></svg>');
 }
 
 .ie-icon {
