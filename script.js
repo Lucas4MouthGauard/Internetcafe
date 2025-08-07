@@ -1559,11 +1559,15 @@ window.closeAllWindows = closeAllWindows;
 // 打开Twitter
 function openTwitter() {
     // 直接跳转到Twitter链接
-    window.open('https://x.com/Internetcafesol', '_blank');
+    window.open('https://x.com/PumpXP_meme', '_blank');
 }
 
 // 打开充值页面
 function openRecharge() {
-    // 直接跳转到充值链接
-    window.open('https://letsbonk.fun/token/BfM1kpxYgQ3DFe6WKrDhZAK4s1g8dFSycfS4sj1qbonk', '_blank');
+    // 暂不可跳转
+    showSystemDialog(
+        'PUMPXP',
+        'Welcome to PUMPXP!\n\nThis feature is currently under development.\n\nPlease stay tuned for updates!',
+        '🚀'
+    );
 } 
