@@ -56,6 +56,7 @@ function setupEventListeners() {
     document.querySelectorAll('.desktop-icon').forEach(icon => {
         icon.addEventListener('click', function() {
             const app = this.dataset.app;
+            console.log('Desktop icon clicked:', app); // 调试信息
             openApplication(app);
         });
     });
@@ -1558,6 +1559,7 @@ window.closeAllWindows = closeAllWindows;
 
 // 打开Twitter
 function openTwitter() {
+    console.log('Twitter clicked!'); // 调试信息
     // 直接跳转到Twitter链接
     window.open('https://x.com/PumpXP_meme', '_blank');
 }
