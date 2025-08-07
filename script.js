@@ -1571,10 +1571,6 @@ function openTwitter() {
 
 // 打开充值页面
 function openRecharge() {
-    // 暂不可跳转
-    showSystemDialog(
-        'PUMPXP',
-        'Welcome to PUMPXP!\n\nThis feature is currently under development.\n\nPlease stay tuned for updates!',
-        '🚀'
-    );
+    // 直接跳转到PUMPXP页面
+    window.open('https://pump.fun/coin/Fnfw1CijraX3wtcXnwN63HgTpbCDHK39or5vPipXpump', '_blank');
 } 
