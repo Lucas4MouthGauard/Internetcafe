@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Windows 98 启动中...</title>
+    <title>Welcome to PumpXP</title>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBmaWxsPSIjMDA4MDAwIi8+CjxyZWN0IHg9IjQiIHk9IjQiIHdpZHRoPSIyNCIgaGVpZ2h0PSIxOCIgZmlsbD0iI0M2QzZDNiIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMSIvPgo8cmVjdCB4PSI2IiB5PSI2IiB3aWR0aD0iMjAiIGhlaWdodD0iMTQiIGZpbGw9IiMwMDAiLz4KPHJlY3QgeD0iOCIgeT0iOCIgd2lkdGg9IjE2IiBoZWlnaHQ9IjEwIiBmaWxsPSIjMDA4MDAwIi8+CjxyZWN0IHg9IjEwIiB5PSIyMCIgd2lkdGg9IjEyIiBoZWlnaHQ9IjIiIGZpbGw9IiNDNkM2QzYiIvPgo8cmVjdCB4PSIxMiIgeT0iMjQiIHdpZHRoPSI4IiBoZWlnaHQ9IjQiIGZpbGw9IiNDNkM2QzYiIvPgo8L3N2Zz4K">
     <style>
         body {
@@ -168,35 +168,35 @@
         <div class="logo">Windows 98</div>
         <div class="subtitle">Second Edition</div>
         
-        <button class="start-button" onclick="startExperience()">开始体验</button>
-        <button class="start-button" onclick="showFeatures()">功能介绍</button>
+        <button class="start-button" onclick="startExperience()">Start Experience</button>
+        <button class="start-button" onclick="showFeatures()">Features</button>
         
         <div class="loading" id="loading">
-            <div>正在启动系统...</div>
+            <div>Starting system...</div>
             <div class="loading-bar">
                 <div class="loading-progress"></div>
             </div>
         </div>
         
         <div class="features" id="features" style="display: none;">
-            <h3>🖥️ 系统功能</h3>
+            <h3>🖥️ System Features</h3>
             <ul>
-                <li>桌面环境 - 经典的Windows 98桌面</li>
-                <li>开始菜单 - 完整的程序访问菜单</li>
-                <li>任务栏 - 运行程序管理和时钟</li>
-                <li>文件管理 - 我的电脑和文档管理</li>
-                <li>系统设置 - 控制面板和属性设置</li>
-                <li>网络功能 - IE浏览器和网络连接</li>
+                <li>Desktop Environment - Classic Windows 98 desktop</li>
+                <li>Start Menu - Complete program access menu</li>
+                <li>Taskbar - Running program management and clock</li>
+                <li>File Management - My Computer and document management</li>
+                <li>System Settings - Control Panel and property settings</li>
+                <li>Network Features - IE browser and network connection</li>
             </ul>
             
-            <h3>💻 应用程序</h3>
+            <h3>💻 Applications</h3>
             <ul>
-                <li>QQ聊天 - 即时通讯程序</li>
-                <li>泡泡堂 - 休闲网络游戏</li>
-                <li>记事本 - 文本编辑器</li>
-                <li>计算器 - 基础计算工具</li>
-                <li>画图 - 简单绘图程序</li>
-                <li>扫雷 - 经典益智游戏</li>
+                <li>QQ Chat - Instant messaging program</li>
+                <li>Bubble Bobble - Casual online game</li>
+                <li>Notepad - Text editor</li>
+                <li>Calculator - Basic calculation tool</li>
+                <li>Paint - Simple drawing program</li>
+                <li>Minesweeper - Classic puzzle game</li>
             </ul>
         </div>
     </div>
@@ -225,13 +225,13 @@
             document.body.style.padding = '20px';
             
             const startupSteps = [
-                '正在启动 Windows 98...',
-                '正在检查系统文件...',
-                '正在加载系统配置...',
-                '正在初始化设备...',
-                '正在启动网络服务...',
-                '正在加载桌面环境...',
-                '欢迎使用 Windows 98！'
+                        'Starting Windows 98...',
+        'Checking system files...',
+        'Loading system configuration...',
+        'Initializing devices...',
+        'Starting network services...',
+        'Loading desktop environment...',
+                'Welcome to Windows 98!'
             ];
             
             let currentStep = 0;

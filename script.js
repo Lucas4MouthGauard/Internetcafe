@@ -4,7 +4,7 @@ let isSlowMode = false;
 let networkCardShown = false;
 let illegalOperationCount = 0;
 
-// DOM加载完成后初始化
+// Initialize after DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
     initializeDesktop();
     initializeClock();
@@ -14,21 +14,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // 初始化桌面
 function initializeDesktop() {
-    console.log('Windows 98 系统启动中...');
+    console.log('Windows 98 system starting...');
     
-    // 随机显示网卡提示
+    // Randomly show network card prompt
     setTimeout(() => {
         if (Math.random() < 0.3) {
             showNetworkCardModal();
         }
     }, 2000 + Math.random() * 3000);
     
-    // 随机显示系统提示
+    // Randomly show system notice
     setTimeout(() => {
         if (Math.random() < 0.2) {
             showSystemDialog(
-                '系统提示',
-                '欢迎使用 Windows 98！\n\n系统已成功启动。\n\n如有问题，请查看帮助文档。',
+                'System Notice',
+                'Welcome to Windows 98!\n\nSystem started successfully.\n\nIf you have any problems, please check the help documentation.',
                 'ℹ️'
             );
         }
@@ -122,7 +122,7 @@ function setupEventListeners() {
     // 浏览器按钮
     setupBrowserEvents();
     
-    // QQ登录
+    // QQ Login
     setupQQEvents();
     
     // 泡泡堂游戏控制
@@ -152,7 +152,7 @@ function openApplication(appName) {
                 simulateBrowserLoading();
                 break;
             case 'qq':
-                // QQ正常打开
+                // QQ opened normally
                 break;
             case 'paopao':
                 startBubbleGame();
@@ -190,8 +190,8 @@ function openApplication(appName) {
                 break;
             case 'my-documents':
                 showSystemDialog(
-                    '我的文档',
-                    '欢迎来到我的文档！\n\n包含：\n• 工作文档\n• 个人文件\n• 下载内容\n• 图片收藏\n• 音乐文件\n\n双击文件夹图标查看内容。',
+                    'My Documents',
+                    'Welcome to My Documents!\n\nContains:\n• Work Documents\n• Personal Files\n• Downloads\n• Picture Collection\n• Music Files\n\nDouble-click folder icons to view content.',
                     '📁'
                 );
                 break;
@@ -392,10 +392,10 @@ function loadWebsite(site) {
                     content: `
                         <h2>百度一下，你就知道</h2>
                         <div style="text-align: center; margin: 30px 0;">
-                            <input type="text" style="width: 300px; padding: 10px; font-size: 16px;" placeholder="请输入搜索内容">
-                            <button style="padding: 10px 20px; margin-left: 10px; background: #3385ff; color: white; border: none;">百度一下</button>
+                                                          <input type="text" style="width: 300px; padding: 10px; font-size: 16px;" placeholder="Enter search content">
+                            <button style="padding: 10px 20px; margin-left: 10px; background: #3385ff; color: white; border: none;">Baidu Search</button>
                         </div>
-                        <p>全球最大的中文搜索引擎，提供网页、图片、视频、新闻、地图等搜索服务。</p>
+                        <p>World's largest Chinese search engine, providing web, image, video, news, map and other search services.</p>
                     `
                 };
                 break;
@@ -998,8 +998,8 @@ function showSystemDialog(title, message, icon = 'ℹ️', showCancel = false) {
 // 显示帮助
 function showHelp() {
     showSystemDialog(
-        'Windows 帮助',
-        '欢迎使用 Windows 98！\n\n主要功能：\n• 桌面应用程序\n• 开始菜单\n• 任务栏\n• 系统设置\n\n如需更多帮助，请联系系统管理员。',
+        'Windows Help',
+        'Welcome to Windows 98!\n\nMain Features:\n• Desktop Applications\n• Start Menu\n• Taskbar\n• System Settings\n\nFor more help, please contact the system administrator.',
         '❓'
     );
 }
@@ -1007,8 +1007,8 @@ function showHelp() {
 // 显示注销对话框
 function showLogoutDialog() {
     showSystemDialog(
-        '注销 Windows',
-        '确定要注销当前用户吗？\n\n注销后，所有打开的程序都将关闭。\n\n未保存的工作可能会丢失。',
+        'Logout Windows',
+        'Are you sure you want to logout the current user?\n\nAfter logout, all open programs will be closed.\n\nUnsaved work may be lost.',
         '🔄',
         true
     ).then(result => {
@@ -1022,22 +1022,22 @@ function showLogoutDialog() {
 function executeLogout() {
     // 显示注销进度
     showSystemDialog(
-        '注销 Windows',
-        '正在注销...\n\n请稍候...\n\n正在关闭所有程序...',
+        'Logout Windows',
+        'Logging out...\n\nPlease wait...\n\nClosing all programs...',
         '⏳'
     );
     
     setTimeout(() => {
         showSystemDialog(
-            '注销 Windows',
-            '正在保存用户设置...\n\n请稍候...',
+            'Logout Windows',
+            'Saving user settings...\n\nPlease wait...',
             '💾'
         );
         
         setTimeout(() => {
             showSystemDialog(
-                '注销 Windows',
-                '注销完成。\n\n欢迎使用 Windows 98！',
+                'Logout Windows',
+                'Logout completed.\n\nWelcome to Windows 98!',
                 '👤'
             );
             
@@ -1077,7 +1077,7 @@ function showLoginScreen() {
             Second Edition
         </div>
         <div style="margin-bottom: 20px;">
-            <input type="text" id="username" placeholder="用户名" style="
+            <input type="text" id="username" placeholder="Username" style="
                 width: 200px; 
                 padding: 10px; 
                 margin: 5px; 
@@ -1089,7 +1089,7 @@ function showLoginScreen() {
             ">
         </div>
         <div style="margin-bottom: 20px;">
-            <input type="password" id="password" placeholder="密码" style="
+            <input type="password" id="password" placeholder="Password" style="
                 width: 200px; 
                 padding: 10px; 
                 margin: 5px; 
@@ -1111,7 +1111,7 @@ function showLoginScreen() {
                 cursor: pointer; 
                 margin: 5px;
                 font-family: inherit;
-            ">登录</button>
+            ">Login</button>
             <button onclick="shutdownFromLogin()" style="
                 background: linear-gradient(to bottom, #ff6b6b, #ff4757); 
                 color: white; 
@@ -1122,7 +1122,7 @@ function showLoginScreen() {
                 cursor: pointer; 
                 margin: 5px;
                 font-family: inherit;
-            ">关机</button>
+            ">Shutdown</button>
         </div>
     `;
     
@@ -1142,15 +1142,15 @@ function login() {
     const password = document.getElementById('password').value;
     
     if (!username || !password) {
-        alert('请输入用户名和密码');
+        alert('Please enter username and password');
         return;
     }
     
     // 显示登录进度
     document.body.innerHTML = `
         <div style="text-align: center; padding-top: 100px; color: white;">
-            <div style="font-size: 18px; margin-bottom: 20px;">正在登录...</div>
-            <div style="font-size: 14px; color: #add8e6;">请稍候...</div>
+            <div style="font-size: 18px; margin-bottom: 20px;">Logging in...</div>
+            <div style="font-size: 14px; color: #add8e6;">Please wait...</div>
         </div>
     `;
     
@@ -1162,9 +1162,9 @@ function login() {
 
 // 从登录界面关机
 function shutdownFromLogin() {
-    if (confirm('确定要关闭计算机吗？')) {
+    if (confirm('Are you sure you want to shutdown the computer?')) {
         document.body.style.background = '#000';
-        document.body.innerHTML = '<div style="color: white; text-align: center; padding-top: 50px; font-family: monospace;">计算机已关闭</div>';
+        document.body.innerHTML = '<div style="color: white; text-align: center; padding-top: 50px; font-family: monospace;">Computer has been shut down</div>';
     }
 }
 
@@ -1200,25 +1200,25 @@ function executeShutdownAction(action) {
     
     switch(action) {
         case 'standby':
-            actionText = '正在进入待机状态...\n\n请稍候...';
+            actionText = 'Entering standby mode...\n\nPlease wait...';
             break;
         case 'shutdown':
-            actionText = '正在关闭计算机...\n\n请稍候...\n\n正在保存系统设置...';
+            actionText = 'Shutting down computer...\n\nPlease wait...\n\nSaving system settings...';
             icon = '🔄';
             break;
         case 'restart':
-            actionText = '正在重新启动...\n\n请稍候...\n\n正在保存系统设置...';
+            actionText = 'Restarting...\n\nPlease wait...\n\nSaving system settings...';
             icon = '🔄';
             break;
         case 'logout':
-            actionText = '正在注销...\n\n请稍候...\n\n正在关闭所有程序...';
+            actionText = 'Logging out...\n\nPlease wait...\n\nClosing all programs...';
             icon = '👤';
             break;
     }
     
     // 显示进度对话框
     const progressDialog = showSystemDialog(
-        '系统操作',
+        'System Operation',
         actionText,
         icon
     );
@@ -1227,25 +1227,25 @@ function executeShutdownAction(action) {
     setTimeout(() => {
         if (action === 'standby') {
             showSystemDialog(
-                '系统状态',
-                '计算机已进入待机状态。\n\n按任意键唤醒计算机。',
+                'System Status',
+                'Computer has entered standby mode.\n\nPress any key to wake up the computer.',
                 '💤'
             );
         } else if (action === 'shutdown') {
             showSystemDialog(
-                '关闭 Windows',
-                '现在可以安全地关闭计算机了。\n\n如果计算机没有自动关闭，请手动关闭电源。',
+                'Shutdown Windows',
+                'It is now safe to turn off your computer.\n\nIf the computer does not turn off automatically, please turn off the power manually.',
                 '⏹️'
             );
             setTimeout(() => {
                 // 关闭计算机
                 document.body.style.background = '#000';
-                document.body.innerHTML = '<div style="color: white; text-align: center; padding-top: 50px; font-family: monospace;">计算机已关闭</div>';
+                document.body.innerHTML = '<div style="color: white; text-align: center; padding-top: 50px; font-family: monospace;">Computer has been shut down</div>';
             }, 3000);
         } else if (action === 'restart') {
             showSystemDialog(
-                '重新启动',
-                '正在重新启动计算机...\n\n请稍候...',
+                'Restart',
+                'Restarting computer...\n\nPlease wait...',
                 '🔄'
             );
             setTimeout(() => {
@@ -1275,12 +1275,12 @@ function showRestartSequence() {
     document.body.style.padding = '20px';
     
     const restartSteps = [
-        '正在重新启动...',
-        '正在检查系统文件...',
-        '正在加载系统配置...',
-        '正在初始化设备...',
-        '正在启动 Windows 98...',
-        '欢迎使用 Windows 98！'
+        'Restarting...',
+        'Checking system files...',
+        'Loading system configuration...',
+        'Initializing devices...',
+        'Starting Windows 98...',
+        'Welcome to Windows 98!'
     ];
     
     let currentStep = 0;
