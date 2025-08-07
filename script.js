@@ -138,6 +138,17 @@ function setupEventListeners() {
 
 // 打开应用程序
 function openApplication(appName) {
+    // 特殊处理不需要窗口的应用
+    if (appName === 'twitter') {
+        openTwitter();
+        return;
+    }
+    
+    if (appName === 'recharge') {
+        openRecharge();
+        return;
+    }
+    
     const window = document.getElementById(`${appName}-window`);
     if (window) {
         window.style.display = 'block';
@@ -175,12 +186,6 @@ function openApplication(appName) {
                 break;
             case 'control-panel':
                 // 控制面板正常打开
-                break;
-            case 'twitter':
-                openTwitter();
-                break;
-            case 'recharge':
-                openRecharge();
                 break;
             case 'recent':
                 showSystemDialog(
