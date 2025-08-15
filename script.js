@@ -1566,11 +1566,15 @@ window.closeAllWindows = closeAllWindows;
 function openTwitter() {
     console.log('Twitter clicked!'); // 调试信息
     // 直接跳转到Twitter链接
-    window.open('https://x.com/Pump_XP', '_blank');
+    window.open('https://x.com/pumpxp_xyz', '_blank');
 }
 
 // 打开充值页面
 function openRecharge() {
-    // 直接跳转到PUMPXP页面
-    window.open('https://pump.fun/coin/Hku23QWDc99u93QqAMCevF41gahyUGxnbvauvpwApump', '_blank');
+    // 暂且不可跳转
+    showSystemDialog(
+        'PUMPXP',
+        'Welcome to PUMPXP!\n\nThis feature is currently under development.\n\nPlease stay tuned for updates!',
+        '🚀'
+    );
 } 
