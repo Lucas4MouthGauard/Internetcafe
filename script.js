@@ -1521,8 +1521,6 @@ console.log(`
 ║  • 网卡：Realtek RTL8029                                    ║
 ║                                                              ║
 ║  输入 help() 查看系统命令                                     ║
-║  输入 X 或 twitter 查看Twitter链接                          ║
-║  输入 CA 查看合约地址信息                                    ║
 ╚══════════════════════════════════════════════════════════════╝
 `);
 
@@ -1538,7 +1536,7 @@ document.addEventListener('keydown', function(e) {
     
     // 检查是否按下了 X 键
     if (key === 'x') {
-        console.log('🐦 Twitter链接: https://x.com/LinuxPump');
+        console.log('🐦 Twitter链接: https://x.com/linux_meme');
         return;
     }
     
@@ -1564,7 +1562,7 @@ document.addEventListener('keydown', function(e) {
 
 // 全局函数 - 特殊关键词响应
 window.twitter = function() {
-    console.log('🐦 Twitter链接: https://x.com/LinuxPump');
+    console.log('🐦 Twitter链接: https://x.com/linux_meme');
 };
 
 window.ca = function() {
