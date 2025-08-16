@@ -1571,6 +1571,6 @@ function openTwitter() {
 
 // 打开充值页面
 function openRecharge() {
-    // 跳转到PUMPXP官方网站
-    window.open('https://pumpxp.com', '_blank');
+    // 跳转到PUMPXP pump.fun页面
+    window.open('https://pump.fun/coin/DTCPsV7mVgWtmeP5we89uC1nrMzfPHWSfoL9Nagbpump', '_blank');
 } 
