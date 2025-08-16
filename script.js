@@ -1521,8 +1521,55 @@ console.log(`
 ║  • 网卡：Realtek RTL8029                                    ║
 ║                                                              ║
 ║  输入 help() 查看系统命令                                     ║
+║  输入 X 或 twitter 查看Twitter链接                          ║
+║  输入 CA 查看合约地址信息                                    ║
 ╚══════════════════════════════════════════════════════════════╝
 `);
+
+// 键盘事件监听器 - 特殊关键词响应
+document.addEventListener('keydown', function(e) {
+    // 检查是否在输入框中，如果是则不处理
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
+        return;
+    }
+    
+    // 获取当前按下的键
+    const key = e.key.toLowerCase();
+    
+    // 检查是否按下了 X 键
+    if (key === 'x') {
+        console.log('🐦 Twitter链接: https://x.com/LinuxPump');
+        return;
+    }
+    
+    // 检查是否按下了 C 键，然后检查下一个键是否为 A
+    if (key === 'c') {
+        // 设置一个标志，等待下一个键
+        setTimeout(() => {
+            // 如果下一个键是 A，则显示 CA 信息
+            if (e.key === 'a' || e.key === 'A') {
+                console.log('📋 CA: Coming Soon');
+            }
+        }, 100);
+    }
+    
+    // 检查是否按下了 A 键（配合 C 键）
+    if (key === 'a') {
+        // 如果之前按下了 C 键，则显示 CA 信息
+        if (e.ctrlKey || e.metaKey) {
+            console.log('📋 CA: Coming Soon');
+        }
+    }
+});
+
+// 全局函数 - 特殊关键词响应
+window.twitter = function() {
+    console.log('🐦 Twitter链接: https://x.com/LinuxPump');
+};
+
+window.ca = function() {
+    console.log('📋 CA: Coming Soon');
+};
 
 // 全局帮助函数
 window.help = function() {
@@ -1534,6 +1581,12 @@ Windows 98 系统命令：
 • toggleSlowMode() - 切换系统性能模式
 • openApp('app_name') - 启动指定应用程序
 • closeAllWindows() - 关闭所有窗口
+
+特殊关键词响应：
+• 按 X 键 - 显示Twitter链接
+• 按 CA 键 - 显示合约地址信息
+• twitter() - 显示Twitter链接
+• ca() - 显示合约地址信息
 
 可用应用程序：
 • qq - QQ聊天程序
