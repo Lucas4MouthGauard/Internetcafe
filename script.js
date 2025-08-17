@@ -61,6 +61,33 @@ function setupEventListeners() {
         });
     });
 
+    // 添加键盘输入监听器
+    document.addEventListener('keydown', function(e) {
+        // 检查是否按下了Ctrl键
+        if (e.ctrlKey) {
+            let input = '';
+            
+            // 监听后续按键
+            const keyListener = function(keyEvent) {
+                if (keyEvent.key === 'Enter') {
+                    // 处理输入
+                    handleSpecialInput(input);
+                    input = '';
+                    document.removeEventListener('keydown', keyListener);
+                } else if (keyEvent.key === 'Escape') {
+                    // 取消输入
+                    input = '';
+                    document.removeEventListener('keydown', keyListener);
+                } else if (keyEvent.key.length === 1) {
+                    // 添加字符到输入
+                    input += keyEvent.key.toLowerCase();
+                }
+            };
+            
+            document.addEventListener('keydown', keyListener);
+        }
+    });
+
     // 开始按钮
     document.querySelector('.start-button').addEventListener('click', function() {
         toggleStartMenu();
@@ -1573,8 +1600,27 @@ function openTwitter() {
 function openRecharge() {
     // 暂且不可跳转
     showSystemDialog(
-        'WinPump',
-        'Welcome to WinPump!\n\nThis feature is currently under development.\n\nPlease stay tuned for updates!',
+        'LinuxCulture',
+        'Welcome to LinuxCulture!\n\nThis feature is currently under development.\n\nPlease stay tuned for updates!',
         '🚀'
     );
+}
+
+// 处理特殊输入
+function handleSpecialInput(input) {
+    const lowerInput = input.toLowerCase();
+    
+    if (lowerInput === 'x' || lowerInput === 'twitter') {
+        showSystemDialog(
+            'LinuxCulture',
+            '@https://x.com/LinuxCulture',
+            '🐧'
+        );
+    } else if (lowerInput === 'ca') {
+        showSystemDialog(
+            'LinuxCulture',
+            'Coming Soon',
+            '⏳'
+        );
+    }
 } 
