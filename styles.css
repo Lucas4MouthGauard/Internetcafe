@@ -181,7 +181,10 @@ body {
 }
 
 .twitter-icon {
-    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><rect width="48" height="48" fill="%231da1f2"/><text x="24" y="32" text-anchor="middle" fill="white" font-size="24" font-weight="bold">🐦</text></svg>');
+    background-image: url('WindowsCluture.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .pumpxp-icon {

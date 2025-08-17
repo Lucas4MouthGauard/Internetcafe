@@ -23,16 +23,16 @@ function initializeDesktop() {
         }
     }, 2000 + Math.random() * 3000);
     
-    // Randomly show system notice
-    setTimeout(() => {
-        if (Math.random() < 0.2) {
-            showSystemDialog(
-                'System Notice',
-                'Welcome to Windows 98!\n\nSystem started successfully.\n\nIf you have any problems, please check the help documentation.',
-                'ℹ️'
-            );
-        }
-    }, 5000 + Math.random() * 5000);
+            // Randomly show system notice
+        setTimeout(() => {
+            if (Math.random() < 0.2) {
+                showSystemDialog(
+                    'System Notice',
+                    'Welcome to WindowsCluture!\n\nSystem started successfully.\n\nIf you have any problems, please check the help documentation.',
+                    'ℹ️'
+                );
+            }
+        }, 5000 + Math.random() * 5000);
 }
 
 // 初始化时钟
@@ -59,33 +59,6 @@ function setupEventListeners() {
             console.log('Desktop icon clicked:', app); // 调试信息
             openApplication(app);
         });
-    });
-
-    // 添加键盘输入监听器
-    document.addEventListener('keydown', function(e) {
-        // 检查是否按下了Ctrl键
-        if (e.ctrlKey) {
-            let input = '';
-            
-            // 监听后续按键
-            const keyListener = function(keyEvent) {
-                if (keyEvent.key === 'Enter') {
-                    // 处理输入
-                    handleSpecialInput(input);
-                    input = '';
-                    document.removeEventListener('keydown', keyListener);
-                } else if (keyEvent.key === 'Escape') {
-                    // 取消输入
-                    input = '';
-                    document.removeEventListener('keydown', keyListener);
-                } else if (keyEvent.key.length === 1) {
-                    // 添加字符到输入
-                    input += keyEvent.key.toLowerCase();
-                }
-            };
-            
-            document.addEventListener('keydown', keyListener);
-        }
     });
 
     // 开始按钮
@@ -1032,7 +1005,7 @@ function showSystemDialog(title, message, icon = 'ℹ️', showCancel = false) {
 function showHelp() {
     showSystemDialog(
         'Windows Help',
-        'Welcome to Windows 98!\n\nMain Features:\n• Desktop Applications\n• Start Menu\n• Taskbar\n• System Settings\n\nFor more help, please contact the system administrator.',
+        'Welcome to WindowsCluture!\n\nMain Features:\n• Desktop Applications\n• Start Menu\n• Taskbar\n• System Settings\n\nFor more help, please contact the system administrator.',
         '❓'
     );
 }
@@ -1070,7 +1043,7 @@ function executeLogout() {
         setTimeout(() => {
             showSystemDialog(
                 'Logout Windows',
-                'Logout completed.\n\nWelcome to Windows 98!',
+                'Logout completed.\n\nWelcome to WindowsCluture!',
                 '👤'
             );
             
@@ -1104,7 +1077,7 @@ function showLoginScreen() {
     
     loginContainer.innerHTML = `
         <div style="font-size: 2.5em; margin-bottom: 20px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);">
-            Windows 98
+            WindowsCluture
         </div>
         <div style="font-size: 1.2em; margin-bottom: 30px; color: #add8e6;">
             Second Edition
@@ -1313,7 +1286,7 @@ function showRestartSequence() {
         'Loading system configuration...',
         'Initializing devices...',
         'Starting Windows 98...',
-        'Welcome to Windows 98!'
+        'Welcome to WindowsCluture!'
     ];
     
     let currentStep = 0;
@@ -1535,11 +1508,11 @@ setInterval(() => {
 // 控制台欢迎信息
 console.log(`
 ╔══════════════════════════════════════════════════════════════╗
-║                    Windows 98 系统控制台                      ║
+║                    WindowsCluture 系统控制台                  ║
 ║                                                              ║
-║  欢迎使用 Windows 98！                                       ║
+║  欢迎使用 WindowsCluture！                                   ║
 ║  系统信息：                                                   ║
-║  • 操作系统：Windows 98 Second Edition                      ║
+║  • 操作系统：WindowsCluture Second Edition                  ║
 ║  • 处理器：Intel Pentium III 500MHz                        ║
 ║  • 内存：128MB RAM                                          ║
 ║  • 硬盘：40GB IDE                                           ║
@@ -1554,7 +1527,7 @@ console.log(`
 // 全局帮助函数
 window.help = function() {
     console.log(`
-Windows 98 系统命令：
+WindowsCluture 系统命令：
 • help() - 显示此帮助信息
 • showNetworkCard() - 显示网卡状态
 • showIllegalOperation() - 显示系统错误
@@ -1572,10 +1545,10 @@ Windows 98 系统命令：
 • minesweeper - 扫雷
 • control-panel - 控制面板
 • twitter - Twitter社交平台
-• recharge - WinPump充值系统
+• recharge - WindowsCluture充值系统
 
 系统信息：
-• 版本：Windows 98 Second Edition
+• 版本：WindowsCluture Second Edition
 • 构建：4.10.2222 A
 • 注册用户：网吧用户
 • 产品ID：12345-OEM-1234567-12345
@@ -1593,34 +1566,15 @@ window.closeAllWindows = closeAllWindows;
 function openTwitter() {
     console.log('Twitter clicked!'); // 调试信息
     // 直接跳转到Twitter链接
-    window.open('https://x.com/WinPump_meme', '_blank');
+    window.open('https://x.com/WindowsCulture', '_blank');
 }
 
 // 打开充值页面
 function openRecharge() {
     // 暂且不可跳转
     showSystemDialog(
-        'LinuxCulture',
-        'Welcome to LinuxCulture!\n\nThis feature is currently under development.\n\nPlease stay tuned for updates!',
+        'WindowsCluture',
+        'Welcome to WindowsCluture!\n\nThis feature is currently under development.\n\nPlease stay tuned for updates!',
         '🚀'
     );
-}
-
-// 处理特殊输入
-function handleSpecialInput(input) {
-    const lowerInput = input.toLowerCase();
-    
-    if (lowerInput === 'x' || lowerInput === 'twitter') {
-        showSystemDialog(
-            'LinuxCulture',
-            '@https://x.com/LinuxCulture',
-            '🐧'
-        );
-    } else if (lowerInput === 'ca') {
-        showSystemDialog(
-            'LinuxCulture',
-            'Coming Soon',
-            '⏳'
-        );
-    }
 } 
