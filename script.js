@@ -1566,7 +1566,7 @@ window.closeAllWindows = closeAllWindows;
 function openTwitter() {
     console.log('Twitter clicked!'); // 调试信息
     // 直接跳转到Twitter链接
-    window.open('https://x.com/WinPump_sol', '_blank');
+    window.open('https://x.com/WinPump_meme', '_blank');
 }
 
 // 打开充值页面
