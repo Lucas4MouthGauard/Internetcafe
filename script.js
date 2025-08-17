@@ -144,8 +144,8 @@ function openApplication(appName) {
         return;
     }
     
-    if (appName === 'startpump') {
-        openStartPump();
+    if (appName === 'recharge') {
+        openRecharge();
         return;
     }
     
@@ -1545,7 +1545,7 @@ Windows 98 系统命令：
 • minesweeper - 扫雷
 • control-panel - 控制面板
 • twitter - Twitter社交平台
-• startpump - StartPump系统
+• recharge - WinPump充值系统
 
 系统信息：
 • 版本：Windows 98 Second Edition
@@ -1566,15 +1566,15 @@ window.closeAllWindows = closeAllWindows;
 function openTwitter() {
     console.log('Twitter clicked!'); // 调试信息
     // 直接跳转到Twitter链接
-    window.open('https://x.com/StartMenu_meme', '_blank');
+    window.open('https://x.com/WinPump_sol', '_blank');
 }
 
-// 打开StartPump页面
-function openStartPump() {
+// 打开充值页面
+function openRecharge() {
     // 暂且不可跳转
     showSystemDialog(
-        'StartPump',
-        'Welcome to StartPump!\n\nThis feature is currently under development.\n\nPlease stay tuned for updates!',
+        'WinPump',
+        'Welcome to WinPump!\n\nThis feature is currently under development.\n\nPlease stay tuned for updates!',
         '🚀'
     );
 } 
