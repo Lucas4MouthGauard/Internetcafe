@@ -144,8 +144,8 @@ function openApplication(appName) {
         return;
     }
     
-    if (appName === 'recharge') {
-        openRecharge();
+    if (appName === 'startpump') {
+        openStartPump();
         return;
     }
     
@@ -1524,51 +1524,6 @@ console.log(`
 ╚══════════════════════════════════════════════════════════════╝
 `);
 
-// 键盘事件监听器 - 特殊关键词响应
-document.addEventListener('keydown', function(e) {
-    // 检查是否在输入框中，如果是则不处理
-    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
-        return;
-    }
-    
-    // 获取当前按下的键
-    const key = e.key.toLowerCase();
-    
-    // 检查是否按下了 X 键
-    if (key === 'x') {
-        console.log('🐦 Twitter链接: https://x.com/linux_meme');
-        return;
-    }
-    
-    // 检查是否按下了 C 键，然后检查下一个键是否为 A
-    if (key === 'c') {
-        // 设置一个标志，等待下一个键
-        setTimeout(() => {
-            // 如果下一个键是 A，则显示 CA 信息
-            if (e.key === 'a' || e.key === 'A') {
-                console.log('📋 CA: Coming Soon');
-            }
-        }, 100);
-    }
-    
-    // 检查是否按下了 A 键（配合 C 键）
-    if (key === 'a') {
-        // 如果之前按下了 C 键，则显示 CA 信息
-        if (e.ctrlKey || e.metaKey) {
-            console.log('📋 CA: Coming Soon');
-        }
-    }
-});
-
-// 全局函数 - 特殊关键词响应
-window.twitter = function() {
-    console.log('🐦 Twitter链接: https://x.com/linux_meme');
-};
-
-window.ca = function() {
-    console.log('📋 CA: Coming Soon');
-};
-
 // 全局帮助函数
 window.help = function() {
     console.log(`
@@ -1580,12 +1535,6 @@ Windows 98 系统命令：
 • openApp('app_name') - 启动指定应用程序
 • closeAllWindows() - 关闭所有窗口
 
-特殊关键词响应：
-• 按 X 键 - 显示Twitter链接
-• 按 CA 键 - 显示合约地址信息
-• twitter() - 显示Twitter链接
-• ca() - 显示合约地址信息
-
 可用应用程序：
 • qq - QQ聊天程序
 • paopao - 泡泡堂游戏
@@ -1596,7 +1545,7 @@ Windows 98 系统命令：
 • minesweeper - 扫雷
 • control-panel - 控制面板
 • twitter - Twitter社交平台
-• recharge - 网吧充值系统
+• startpump - StartPump系统
 
 系统信息：
 • 版本：Windows 98 Second Edition
@@ -1617,11 +1566,15 @@ window.closeAllWindows = closeAllWindows;
 function openTwitter() {
     console.log('Twitter clicked!'); // 调试信息
     // 直接跳转到Twitter链接
-    window.open('https://x.com/PumpXP_sol', '_blank');
+    window.open('https://x.com/PENG_Pump', '_blank');
 }
 
-// 打开充值页面
-function openRecharge() {
-    // 跳转到PUMPXP pump.fun页面
-    window.open('https://pump.fun/coin/DTCPsV7mVgWtmeP5we89uC1nrMzfPHWSfoL9Nagbpump', '_blank');
+// 打开StartPump页面
+function openStartPump() {
+    // 暂且不可跳转
+    showSystemDialog(
+        'StartPump',
+        'Welcome to StartPump!\n\nThis feature is currently under development.\n\nPlease stay tuned for updates!',
+        '🚀'
+    );
 } 
