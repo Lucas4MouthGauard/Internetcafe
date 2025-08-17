@@ -1566,7 +1566,7 @@ window.closeAllWindows = closeAllWindows;
 function openTwitter() {
     console.log('Twitter clicked!'); // 调试信息
     // 直接跳转到Twitter链接
-    window.open('https://x.com/PENG_Pump', '_blank');
+    window.open('https://x.com/StartMenu_meme', '_blank');
 }
 
 // 打开StartPump页面
