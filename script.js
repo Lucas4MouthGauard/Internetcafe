@@ -28,7 +28,7 @@ function initializeDesktop() {
             if (Math.random() < 0.2) {
                 showSystemDialog(
                     'System Notice',
-                    'Welcome to WindowsCulture!\n\nSystem started successfully.\n\nIf you have any problems, please check the help documentation.',
+                    'Welcome to MyComputer!\n\nSystem started successfully.\n\nIf you have any problems, please check the help documentation.',
                     'ℹ️'
                 );
             }
@@ -1005,7 +1005,7 @@ function showSystemDialog(title, message, icon = 'ℹ️', showCancel = false) {
 function showHelp() {
     showSystemDialog(
         'Windows Help',
-        'Welcome to WindowsCulture!\n\nMain Features:\n• Desktop Applications\n• Start Menu\n• Taskbar\n• System Settings\n\nFor more help, please contact the system administrator.',
+        'Welcome to MyComputer!\n\nMain Features:\n• Desktop Applications\n• Start Menu\n• Taskbar\n• System Settings\n\nFor more help, please contact the system administrator.',
         '❓'
     );
 }
@@ -1043,7 +1043,7 @@ function executeLogout() {
         setTimeout(() => {
             showSystemDialog(
                 'Logout Windows',
-                'Logout completed.\n\nWelcome to WindowsCulture!',
+                'Logout completed.\n\nWelcome to MyComputer!',
                 '👤'
             );
             
@@ -1077,7 +1077,7 @@ function showLoginScreen() {
     
     loginContainer.innerHTML = `
         <div style="font-size: 2.5em; margin-bottom: 20px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);">
-            WindowsCulture
+            MyComputer
         </div>
         <div style="font-size: 1.2em; margin-bottom: 30px; color: #add8e6;">
             Second Edition
@@ -1286,7 +1286,7 @@ function showRestartSequence() {
         'Loading system configuration...',
         'Initializing devices...',
         'Starting Windows 98...',
-        'Welcome to WindowsCulture!'
+        'Welcome to MyComputer!'
     ];
     
     let currentStep = 0;
@@ -1508,11 +1508,11 @@ setInterval(() => {
 // 控制台欢迎信息
 console.log(`
 ╔══════════════════════════════════════════════════════════════╗
-║                    WindowsCulture 系统控制台                  ║
+║                    MyComputer 系统控制台                      ║
 ║                                                              ║
-║  欢迎使用 WindowsCulture！                                   ║
+║  欢迎使用 MyComputer！                                       ║
 ║  系统信息：                                                   ║
-║  • 操作系统：WindowsCulture Second Edition                  ║
+║  • 操作系统：MyComputer Second Edition                      ║
 ║  • 处理器：Intel Pentium III 500MHz                        ║
 ║  • 内存：128MB RAM                                          ║
 ║  • 硬盘：40GB IDE                                           ║
@@ -1527,7 +1527,7 @@ console.log(`
 // 全局帮助函数
 window.help = function() {
     console.log(`
-WindowsCulture 系统命令：
+MyComputer 系统命令：
 • help() - 显示此帮助信息
 • showNetworkCard() - 显示网卡状态
 • showIllegalOperation() - 显示系统错误
@@ -1545,10 +1545,10 @@ WindowsCulture 系统命令：
 • minesweeper - 扫雷
 • control-panel - 控制面板
 • twitter - Twitter社交平台
-• recharge - WindowsCulture充值系统
+• recharge - MyComputer充值系统
 
 系统信息：
-• 版本：WindowsCulture Second Edition
+• 版本：MyComputer Second Edition
 • 构建：4.10.2222 A
 • 注册用户：网吧用户
 • 产品ID：12345-OEM-1234567-12345
@@ -1566,15 +1566,15 @@ window.closeAllWindows = closeAllWindows;
 function openTwitter() {
     console.log('Twitter clicked!'); // 调试信息
     // 直接跳转到Twitter链接
-    window.open('https://x.com/WindowsCulture', '_blank');
+    window.open('https://x.com/MyCpmputer_meme', '_blank');
 }
 
 // 打开充值页面
 function openRecharge() {
     // 暂且不可跳转
     showSystemDialog(
-        'WindowsCulture',
-        'Welcome to WindowsCulture!\n\nThis feature is currently under development.\n\nPlease stay tuned for updates!',
+        'MyComputer',
+        'Welcome to MyComputer!\n\nThis feature is currently under development.\n\nPlease stay tuned for updates!',
         '🚀'
     );
 } 
