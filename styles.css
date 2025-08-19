@@ -1119,4 +1119,91 @@ body {
 
 .shutdown-btn:hover {
     background: linear-gradient(to bottom, #e0e0e0, #c0c0c0);
+}
+
+/* BreadCat 相关样式 */
+.quick-switch {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    z-index: 1000;
+    min-width: 120px;
+}
+
+.switch-btn {
+    display: block;
+    width: 100%;
+    padding: 8px 12px;
+    margin: 5px 0;
+    background: linear-gradient(to bottom, #4CAF50, #45a049);
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 12px;
+}
+
+.switch-btn:hover {
+    background: linear-gradient(to bottom, #45a049, #3d8b40);
+}
+
+.breadcat-interface {
+    text-align: center;
+    padding: 20px;
+}
+
+.breadcat-info {
+    margin: 20px 0;
+    text-align: left;
+}
+
+.breadcat-info p {
+    margin: 10px 0;
+    line-height: 1.5;
+}
+
+.breadcat-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.buy-btn, .info-btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.buy-btn {
+    background: linear-gradient(to bottom, #ff6b6b, #ff4757);
+    color: white;
+}
+
+.buy-btn:hover {
+    background: linear-gradient(to bottom, #ff4757, #ff3742);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 107, 107, 0.4);
+}
+
+.info-btn {
+    background: linear-gradient(to bottom, #4CAF50, #45a049);
+    color: white;
+}
+
+.info-btn:hover {
+    background: linear-gradient(to bottom, #45a049, #3d8b40);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.4);
 } 

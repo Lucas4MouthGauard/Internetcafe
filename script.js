@@ -1566,7 +1566,7 @@ window.closeAllWindows = closeAllWindows;
 function openTwitter() {
     console.log('Twitter clicked!'); // 调试信息
     // 直接跳转到Twitter链接
-    window.open('https://x.com/MyCpmputer_meme', '_blank');
+    window.open('https://x.com/BreadCat_meme', '_blank');
 }
 
 // 打开充值页面
@@ -1577,4 +1577,72 @@ function openRecharge() {
         'Welcome to MyComputer!\n\nThis feature is currently under development.\n\nPlease stay tuned for updates!',
         '🚀'
     );
-} 
+}
+
+// BreadCat 相关功能
+let currentCat = 'BreadCat';
+
+// 快速切换功能
+function switchToQuantumCat() {
+    currentCat = 'QuantumCat';
+    document.getElementById('breadcat-text').textContent = 'QuantumCat';
+    document.querySelector('.quick-switch').style.display = 'none';
+    showSystemDialog(
+        'Cat Switched',
+        'Successfully switched to QuantumCat! 🐱⚛️\n\nQuantumCat is now active.',
+        '✅'
+    );
+}
+
+function switchToBreadCat() {
+    currentCat = 'BreadCat';
+    document.getElementById('breadcat-text').textContent = 'BreadCat';
+    document.querySelector('.quick-switch').style.display = 'none';
+    showSystemDialog(
+        'Cat Switched',
+        'Successfully switched to BreadCat! 🍞🐱\n\nBreadCat is now active.',
+        '✅'
+    );
+}
+
+// 显示快速切换菜单
+function showQuickSwitch() {
+    const quickSwitch = document.querySelector('.quick-switch');
+    quickSwitch.style.display = quickSwitch.style.display === 'none' ? 'block' : 'none';
+}
+
+// BUY按钮功能（不跳转）
+function showBuyDialog() {
+    showSystemDialog(
+        'BreadCat Purchase',
+        'Welcome to BreadCat! 🍞🐱\n\nThis feature is currently under development.\n\nPlease stay tuned for updates!',
+        '🚀'
+    );
+}
+
+// Info按钮功能
+function showBreadCatInfo() {
+    showSystemDialog(
+        'BreadCat Information',
+        'BreadCat ($BREAD) 🍞🐱\n\n• A revolutionary meme token on the blockchain\n• Community-driven project\n• Built for the future of DeFi\n\nTwitter: @BreadCat_meme\n\nJoin the BreadCat community!',
+        'ℹ️'
+    );
+}
+
+// 为BreadCat图标添加右键菜单事件
+document.addEventListener('DOMContentLoaded', function() {
+    const breadcatIcon = document.getElementById('breadcat-icon');
+    if (breadcatIcon) {
+        breadcatIcon.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+            showQuickSwitch();
+        });
+        
+        // 点击其他地方关闭快速切换菜单
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('#breadcat-icon')) {
+                document.querySelector('.quick-switch').style.display = 'none';
+            }
+        });
+    }
+}); 

@@ -43,9 +43,13 @@
                 <div class="icon-img twitter-icon"></div>
                 <div class="icon-text">Twitter</div>
             </div>
-            <div class="desktop-icon" data-app="recharge">
+            <div class="desktop-icon" data-app="recharge" id="breadcat-icon">
                 <div class="icon-img pumpxp-icon"></div>
-                <div class="icon-text">$MyComputer</div>
+                <div class="icon-text" id="breadcat-text">BreadCat</div>
+                <div class="quick-switch" style="display: none;">
+                    <button class="switch-btn" onclick="switchToQuantumCat()">QuantumCat</button>
+                    <button class="switch-btn" onclick="switchToBreadCat()">BreadCat</button>
+                </div>
             </div>
             <div class="desktop-icon" data-app="paopao">
                 <div class="icon-img paopao-icon"></div>
@@ -95,6 +99,31 @@
                                 <button class="btn btn-primary">OK</button>
         </div>
     </div>
+        </div>
+
+        <!-- BreadCat Window -->
+        <div id="breadcat-window" class="app-window" style="display: none;">
+            <div class="window-header">
+                <div class="window-title">BreadCat</div>
+                <div class="window-controls">
+                    <span class="minimize">─</span>
+                    <span class="maximize">□</span>
+                    <span class="close">×</span>
+                </div>
+            </div>
+            <div class="window-content">
+                <div class="breadcat-interface">
+                    <h3>Welcome to BreadCat! 🍞🐱</h3>
+                    <div class="breadcat-info">
+                        <p>BreadCat is a revolutionary meme token on the blockchain.</p>
+                        <p>Join the BreadCat community and experience the future of decentralized finance!</p>
+                    </div>
+                    <div class="breadcat-actions">
+                        <button class="buy-btn" onclick="showBuyDialog()">BUY</button>
+                        <button class="info-btn" onclick="showBreadCatInfo()">Info</button>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Application Windows -->
