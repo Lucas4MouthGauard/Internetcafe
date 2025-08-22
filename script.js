@@ -1566,7 +1566,7 @@ window.closeAllWindows = closeAllWindows;
 function openTwitter() {
     console.log('Twitter clicked!'); // 调试信息
     // 直接跳转到Twitter链接
-    window.open('https://x.com/BreadCat_meme', '_blank');
+    window.open('https://x.com/winpump_xyz', '_blank');
 }
 
 // 打开充值页面
@@ -1580,7 +1580,7 @@ function openRecharge() {
 }
 
 // BreadCat 相关功能
-let currentCat = 'BreadCat';
+let currentCat = '$WinPump';
 
 // 快速切换功能
 function switchToQuantumCat() {
@@ -1595,12 +1595,12 @@ function switchToQuantumCat() {
 }
 
 function switchToBreadCat() {
-    currentCat = 'BreadCat';
-    document.getElementById('breadcat-text').textContent = 'BreadCat';
+    currentCat = '$WinPump';
+    document.getElementById('breadcat-text').textContent = '$WinPump';
     document.querySelector('.quick-switch').style.display = 'none';
     showSystemDialog(
         'Cat Switched',
-        'Successfully switched to BreadCat! 🍞🐱\n\nBreadCat is now active.',
+        'Successfully switched to $WinPump! 🚀\n\n$WinPump is now active.',
         '✅'
     );
 }
@@ -1614,8 +1614,8 @@ function showQuickSwitch() {
 // BUY按钮功能（不跳转）
 function showBuyDialog() {
     showSystemDialog(
-        'BreadCat Purchase',
-        'Welcome to BreadCat! 🍞🐱\n\nThis feature is currently under development.\n\nPlease stay tuned for updates!',
+        '$WinPump Purchase',
+        'Welcome to $WinPump! 🚀\n\nThis feature is currently under development.\n\nPlease stay tuned for updates!',
         '🚀'
     );
 }
@@ -1623,8 +1623,8 @@ function showBuyDialog() {
 // Info按钮功能
 function showBreadCatInfo() {
     showSystemDialog(
-        'BreadCat Information',
-        'BreadCat ($BREAD) 🍞🐱\n\n• A revolutionary meme token on the blockchain\n• Community-driven project\n• Built for the future of DeFi\n\nTwitter: @BreadCat_meme\n\nJoin the BreadCat community!',
+        '$WinPump Information',
+        '$WinPump 🚀\n\n• A revolutionary project on the blockchain\n• Community-driven development\n• Built for the future of DeFi\n\nTwitter: @winpump_xyz\n\nJoin the $WinPump community!',
         'ℹ️'
     );
 }
